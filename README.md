@@ -1,12 +1,12 @@
 # AmbatuKos
 
-PHP 8.3 (tanpa framework) + MariaDB 11 + Docker. Dibangun mengikuti dokumen **Analisis (Bab I–IV)** dan **Bab V Perancangan** (use case UC-01…UC-15, BR-01…BR-13, Tabel 5.4–5.14, UI-01…UI-17).
+PHP 8.3 (tanpa framework) + MariaDB 11 + Docker.
 
 ## Menjalankan
 ```bash
 docker compose up -d --build
 ```
-- Aplikasi: `http://172.20.0.1:8079` (port di-bind ke IP gateway network `ambatukos`, subnet `172.20.0.0/16`, sama polanya dengan `johanz-web`). Arahkan reverse proxy/Traefik ke sana, atau ubah `BIND_IP` di `.env` menjadi `127.0.0.1` untuk akses lokal.
+- Aplikasi: `http://172.20.0.1:8079` (port di-bind ke IP gateway network `ambatukos`, subnet `172.20.0.0/16`). Arahkan reverse proxy/Traefik ke sana, atau ubah `BIND_IP` di `.env` menjadi `127.0.0.1` untuk akses lokal.
 - Jika subnet 172.20.0.0/16 bentrok di server Anda, ganti subnet di `docker-compose.yml` dan `BIND_IP`.
 - Pengaturan ada di `.env` (ganti password sebelum dipakai sungguhan).
 
