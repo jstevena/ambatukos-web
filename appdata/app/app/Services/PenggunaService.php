@@ -133,6 +133,7 @@ class PenggunaService
         if ($u['bisa_password'] && $password !== '') {
             $this->auth->pastikanPasswordKuat($password);
             $data['password_hash'] = password_hash($password, PASSWORD_DEFAULT);
+            $data['password_diatur'] = 1;
         }
         try {
             $this->repo->update($id, $data);
