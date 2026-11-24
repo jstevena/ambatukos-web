@@ -37,6 +37,26 @@ services:
       retries: 30
 
 ###############################################
+# AMBATUKOS PHPMYADMIN
+###############################################
+  ambatukos-pma:
+    <<: *common-keys
+    container_name: ambatukos-pma
+    image: phpmyadmin:5
+    cpus: 0.25
+    mem_limit: 256m
+    environment:
+      - TZ=Asia/Jakarta
+      - PMA_HOST=ambatukos-db
+      - PMA_PORT=3306
+      - UPLOAD_LIMIT=64M
+    ports:
+      - "172.30.0.1:8081:80"
+    depends_on:
+      ambatukos-db:
+        condition: service_healthy
+
+###############################################
 # AMBATUKOS WEB (PHP + APACHE)
 ###############################################
   ambatukos-web:
